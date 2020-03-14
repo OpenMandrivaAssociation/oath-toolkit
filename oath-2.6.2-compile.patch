@@ -1,0 +1,24 @@
+diff -up oath-toolkit-2.6.2/liboath/aux.c.omv~ oath-toolkit-2.6.2/liboath/aux.c
+--- oath-toolkit-2.6.2/liboath/aux.c.omv~	2020-03-12 21:45:08.605167007 +0100
++++ oath-toolkit-2.6.2/liboath/aux.c	2020-03-12 21:45:19.641166471 +0100
+@@ -25,7 +25,7 @@
+ 
+ #include <string.h>		/* strcmp */
+ 
+-int
++__attribute__((used)) int
+ _oath_strcmp_callback (void *handle, const char *test_otp)
+ {
+   char *otp = handle;
+diff -up oath-toolkit-2.6.2/liboath/hotp.c.omv~ oath-toolkit-2.6.2/liboath/hotp.c
+--- oath-toolkit-2.6.2/liboath/hotp.c.omv~	2020-03-12 21:45:38.621165550 +0100
++++ oath-toolkit-2.6.2/liboath/hotp.c	2020-03-12 21:45:50.971164951 +0100
+@@ -72,7 +72,7 @@ oath_hotp_generate (const char *secret,
+ 
+ /* Takes @flags to override use of MAC.  HOTP is only specified for
+    HMAC-SHA1 which is why this function is not exported. */
+-int
++__attribute__((used)) int
+ _oath_hotp_generate2 (const char *secret,
+ 		      size_t secret_length,
+ 		      uint64_t moving_factor,
