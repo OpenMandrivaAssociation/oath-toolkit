@@ -36,6 +36,7 @@ BuildRequires:	gengetopt
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(xmlsec1)
 BuildRequires:	libxml2-utils
+BuildRequires:	libltdl-devel
 
 %description
 The OATH Toolkit provides components for building one-time password
