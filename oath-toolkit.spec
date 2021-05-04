@@ -7,28 +7,15 @@
 %define pdevelname	%mklibname pskc -d
 
 Name:		oath-toolkit
-Version:	2.6.2
-Release:	5
+Version:	2.6.7
+Release:	1
 License:	GPLv3
 Summary:	OATH Toolkit is a software toolkit for using HOTP/TOTP schemes
 URL:		http://www.nongnu.org/oath-toolkit
 Group:		System/Base
 Source0:	http://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-%{version}.tar.gz
 ## Fedora patches:
-# Escape leading single quotes in man pages which are misinterpreted as macros,
-# patch sent upstream, upstream ticket #108312
-Patch0:		oath-toolkit-2.0.2-man-fix.patch
-# Fix invalid reads due to references to old (freed) xmlDoc,
-# upstream ticket #108736
-Patch1:		oath-toolkit-2.4.1-retain-original-xmldoc.patch
 Patch2:		oath-2.6.2-compile.patch
-# From upsteam:
-Patch10:	0001-Update-gnulib-files.patch
-# From upstream merge sequest:
-# https://gitlab.com/oath-toolkit/oath-toolkit/merge_requests/9/
-#Patch11:	0001-gnulib-fix-fseeko-with-glibc-2.28.patch
-#Patch12:	oath-toolkit-2.6.2-gcc7.patch
-Patch13:	oath-toolkit-2.6.2-glibc228.patch
 BuildRequires:	bison
 BuildRequires:	pam-devel
 BuildRequires:	help2man
@@ -116,7 +103,7 @@ Tool for working with PSKC (Portable Symmetric Key Container) data
 	    --disable-static \
 	    --with-pic
 
-# As of 2.6.2, SMP builds try to run help2man oathtool
+# As of 2.6.7, SMP builds try to run help2man oathtool
 # before building it
 %make_build -j1
 
@@ -124,8 +111,9 @@ Tool for working with PSKC (Portable Symmetric Key Container) data
 %make_install
 
 %check
+# Don't use %%make_build, parallel testing is broken
 # pskctool tst_libexamples.sh is known to fail in 2.6.2 on x86_64
-%make_build check || :
+make check || :
 
 %files
 %doc ChangeLog README COPYING
