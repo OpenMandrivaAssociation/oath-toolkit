@@ -11,7 +11,7 @@ Version:	2.6.7
 Release:	2
 License:	GPLv3
 Summary:	OATH Toolkit is a software toolkit for using HOTP/TOTP schemes
-URL:		http://www.nongnu.org/oath-toolkit
+URL:		https://www.nongnu.org/oath-toolkit
 Group:		System/Base
 Source0:	http://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-%{version}.tar.gz
 ## Fedora patches:
