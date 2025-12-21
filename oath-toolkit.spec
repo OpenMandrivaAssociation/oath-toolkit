@@ -16,6 +16,11 @@ Group:		System/Base
 Source0:	http://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-%{version}.tar.gz
 ## Fedora patches:
 Patch2:		oath-2.6.2-compile.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	pam-devel
 BuildRequires:	help2man
