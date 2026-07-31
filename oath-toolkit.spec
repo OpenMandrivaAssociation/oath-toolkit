@@ -7,15 +7,15 @@
 %define pdevelname	%mklibname pskc -d
 
 Name:		oath-toolkit
-Version:	2.6.7
-Release:	2
+Version:	2.6.14
+Release:	1
 License:	GPLv3
 Summary:	OATH Toolkit is a software toolkit for using HOTP/TOTP schemes
 URL:		https://www.nongnu.org/oath-toolkit
 Group:		System/Base
-Source0:	http://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-%{version}.tar.gz
+Source0:	https://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-%{version}.tar.gz
 ## Fedora patches:
-Patch2:		oath-2.6.2-compile.patch
+# dropped (no longer applies): Patch2:		oath-2.6.2-compile.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
