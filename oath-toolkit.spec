@@ -7,13 +7,15 @@
 %define pdevelname	%mklibname pskc -d
 
 Name:		oath-toolkit
-Version:	2.6.14
+Version:	2.6.15
 Release:	1
 License:	GPLv3
 Summary:	OATH Toolkit is a software toolkit for using HOTP/TOTP schemes
 URL:		https://www.nongnu.org/oath-toolkit
 Group:		System/Base
 Source0:	https://download.savannah.nongnu.org/releases/oath-toolkit/oath-toolkit-%{version}.tar.gz
+# Linux-PAM no longer has struct pam_module
+Patch0:		oath-toolkit-2.6.15-pam-static.patch
 ## Fedora patches:
 # dropped (no longer applies): Patch2:		oath-2.6.2-compile.patch
 BuildRequires:	autoconf
@@ -110,10 +112,10 @@ Tool for working with PSKC (Portable Symmetric Key Container) data
 
 # As of 2.6.7, SMP builds try to run help2man oathtool
 # before building it
-%make_build -j1
+%make_build -j1 LIBTOOL=slibtool-shared
 
 %install
-%make_install
+%make_install LIBTOOL=slibtool-shared
 
 %check
 # Don't use %%make_build, parallel testing is broken

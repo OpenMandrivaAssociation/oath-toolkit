@@ -1,0 +1,17 @@
+Linux-PAM no longer defines struct pam_module. slibtool still
+compiles a non-PIC object, and that path defined PAM_STATIC.
+
+--- a/pam_oath/pam_oath.c
++++ b/pam_oath/pam_oath.c
+@@ -33,11 +33,6 @@
+ #include <unistd.h>
+ #include <errno.h>
+ 
+-/* Libtool defines PIC for shared objects */
+-#ifndef PIC
+-# define PAM_STATIC
+-#endif
+-
+ /* These #defines must be present according to PAM documentation. */
+ #define PAM_SM_AUTH
+ #define PAM_SM_ACCOUNT
